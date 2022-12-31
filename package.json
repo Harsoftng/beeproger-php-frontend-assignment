@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "tailwind:dev": "npx tailwindcss -i ./styles/tailwind.css -o ./styles/styles.css --watch"
+    "tailwind:dev": "npx tailwindcss -i ./styles/tailwind.css -o styles/app.css --watch"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.7",
@@ -18,14 +18,17 @@
     "@types/react": "18.0.26",
     "@types/react-dom": "18.0.10",
     "@types/react-redux": "^7.1.25",
+    "autoprefixer": "^10.4.13",
     "axios": "^1.2.2",
     "daisyui": "^2.46.0",
     "formik": "^2.2.9",
     "next": "13.1.1",
+    "postcss": "^8.4.20",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-redux": "^8.0.5",
     "react-spinners": "^0.13.7",
+    "react-toastify": "^9.1.1",
     "redux": "^4.2.0",
     "redux-persist": "^6.0.0",
     "redux-thunk": "^2.4.2",

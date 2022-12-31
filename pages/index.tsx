@@ -1,11 +1,6 @@
 import React from 'react';
+import Todo from '../components/app/Todo';
 
 export default function Home() {
-  return (
-    <>
-      <h1 className="text-9xl font-medium text-gray-900 bg-info">
-        Setting things up
-      </h1>
-    </>
-  );
+  return <Todo />;
 }
