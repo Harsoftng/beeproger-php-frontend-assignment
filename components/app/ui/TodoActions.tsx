@@ -14,7 +14,7 @@ const TodoActions = ({ todo }: { todo: ITodo }) => {
     <div className="btn-group">
       <div className="tooltip tooltip-primary" data-tip="Edit Todo">
         <button
-          className="btn btn-md"
+          className="btn btn-md rounded-r-none"
           onClick={() => openEditTodoDialog(todo.id)}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -34,7 +34,9 @@ const TodoActions = ({ todo }: { todo: ITodo }) => {
 
       <div className="tooltip tooltip-primary" data-tip="Delete Todo">
         <button
-          className={clsx('btn btn-md btn-error', { loading: deleting })}
+          className={clsx('btn btn-md btn-error rounded-l-none', {
+            loading: deleting
+          })}
           onClick={onDeleteTodo}>
           {!deleting && (
             <svg
