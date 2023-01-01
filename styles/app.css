@@ -3026,6 +3026,18 @@ html {
   display: none;
 }
 
+.aspect-video {
+  aspect-ratio: 16 / 9;
+}
+
+.aspect-auto {
+  aspect-ratio: auto;
+}
+
+.aspect-square {
+  aspect-ratio: 1 / 1;
+}
+
 .h-screen {
   height: 100vh;
 }
@@ -3048,6 +3060,10 @@ html {
 
 .h-12 {
   height: 3rem;
+}
+
+.h-\[200px\] {
+  height: 200px;
 }
 
 .min-h-full {
@@ -3108,6 +3124,18 @@ html {
 
 .w-96 {
   width: 24rem;
+}
+
+.w-\[100\%\] {
+  width: 100%;
+}
+
+.w-1\/2 {
+  width: 50%;
+}
+
+.w-3\/4 {
+  width: 75%;
 }
 
 .max-w-md {
@@ -3300,6 +3328,10 @@ html {
 
 .p-20 {
   padding: 5rem;
+}
+
+.p-10 {
+  padding: 2.5rem;
 }
 
 .px-4 {

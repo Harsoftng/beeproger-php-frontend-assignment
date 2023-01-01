@@ -1,12 +1,13 @@
 import React from 'react';
 import { useTodosFunctions } from '../api/useTodosFunctions';
+import { ITodo } from '../types/ITodo';
 
-const EditTodoUI = () => {
+const EditTodoUI = ({ todo }: { todo: ITodo }) => {
   const { closeDialog } = useTodosFunctions();
   return (
     <div className="flex items-center justify-center flex-col">
-      <div className="card w-96 bg-base-100 shadow-xl rounded-b-none p-5 flex items-center justify-between flex-row">
-        Title goes Here
+      <div className="card w-3/4 bg-base-100 shadow-xl rounded-b-none p-5 flex items-center justify-between flex-row">
+        Edit Todo
         <button className="btn btn-ghost" onClick={closeDialog}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -23,12 +24,12 @@ const EditTodoUI = () => {
           </svg>
         </button>
       </div>
-      <div className="card w-96 glass shadow-xl rounded-t-none">
+      <div className="card w-3/4 glass shadow-xl rounded-t-none">
         <figure className="px-10 pt-10">
           <img
-            src="https://placeimg.com/400/225/arch"
+            src={todo.photoUrl || '/'}
             alt="Shoes"
-            className="rounded-xl"
+            className="rounded-xl w-[100%] aspect-auto"
           />
         </figure>
         <div className="card-body items-center text-center">

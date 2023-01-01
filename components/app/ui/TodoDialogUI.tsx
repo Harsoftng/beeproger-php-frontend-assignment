@@ -5,12 +5,13 @@ import { useTodosFunctions } from '../api/useTodosFunctions';
 import { ETodoDialogView } from '../../../store/types/ETodoDialogView';
 import ViewTodoUI from './ViewTodoUI';
 import EditTodoUI from './EditTodoUI';
+import { useGetSingleTodoAPI } from '../api/useGetSingleTodoAPI';
+import { BeatLoader } from 'react-spinners';
 
 const TodoDialogUI = () => {
-  const { dialogIsOpen, view } = useTodoState();
+  const { dialogIsOpen, view, selectedTodoId } = useTodoState();
   const { closeDialog } = useTodosFunctions();
-
-  console.log({ dialogIsOpen });
+  const { isLoading, todo } = useGetSingleTodoAPI(selectedTodoId || 0);
 
   return (
     <Transition appear show={dialogIsOpen} as={Fragment}>
@@ -33,8 +34,20 @@ const TodoDialogUI = () => {
 
         <div className="fixed inset-0 overflow-y-auto glass">
           <div className="flex min-h-full items-center justify-center p-4 text-center">
-            {view === ETodoDialogView.View_Todo_View && <ViewTodoUI />}
-            {view === ETodoDialogView.Edit_Todo_View && <EditTodoUI />}
+            {isLoading ? (
+              <div className="p-10">
+                <BeatLoader loading={isLoading} />
+              </div>
+            ) : (
+              <>
+                {todo && view === ETodoDialogView.View_Todo_View && (
+                  <ViewTodoUI todo={todo} />
+                )}
+                {todo && view === ETodoDialogView.Edit_Todo_View && (
+                  <EditTodoUI todo={todo} />
+                )}
+              </>
+            )}
           </div>
         </div>
       </Dialog>

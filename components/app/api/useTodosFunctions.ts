@@ -17,7 +17,7 @@ export const useTodosFunctions = () => {
       return;
     }
     const confirmed = await showConfirmDialog(
-      'Are you sure you want to delete this message? This cannot be undone.'
+      'Are you sure you want to delete this task? This cannot be undone.'
     );
 
     if (!confirmed) {
