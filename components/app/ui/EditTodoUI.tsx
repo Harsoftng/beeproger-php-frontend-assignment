@@ -5,8 +5,8 @@ import { ITodo } from '../types/ITodo';
 const EditTodoUI = ({ todo }: { todo: ITodo }) => {
   const { closeDialog } = useTodosFunctions();
   return (
-    <div className="flex items-center justify-center flex-col">
-      <div className="card w-3/4 bg-base-100 shadow-xl rounded-b-none p-5 flex items-center justify-between flex-row">
+    <div className="flex items-center justify-center flex-col min-w-[100%]">
+      <div className="card lg:min-w-[50%] xl:min-w-[40%] md:min-w-[80%] sm:min-w-[90%] min-w-[90%] bg-base-100 shadow-xl rounded-b-none p-5 flex items-center justify-between flex-row">
         Edit Todo
         <button className="btn btn-ghost" onClick={closeDialog}>
           <svg
@@ -24,20 +24,17 @@ const EditTodoUI = ({ todo }: { todo: ITodo }) => {
           </svg>
         </button>
       </div>
-      <div className="card w-3/4 glass shadow-xl rounded-t-none">
-        <figure className="px-10 pt-10">
+      <div className="card lg:min-w-[50%] xl:min-w-[40%] md:min-w-[80%] sm:min-w-[90%] min-w-[90%] glass shadow-xl rounded-t-none">
+        <figure className="px-10 pt-10 w-full">
           <img
             src={todo.photoUrl || '/'}
             alt="Shoes"
-            className="rounded-xl w-[100%] aspect-auto"
+            className="rounded-xl object-fill h-48 w-full"
           />
         </figure>
-        <div className="card-body items-center text-center">
-          <h2 className="card-title">Shoes!</h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
-          <div className="card-actions">
-            <button className="btn btn-primary">Buy Now</button>
-          </div>
+        <div className="card-body grid grid-cols-2 gap-4 items-center text-center">
+          <div className="col-span-6">Hey</div>
+          <div className="col-span-6">Aloha</div>
         </div>
       </div>
     </div>

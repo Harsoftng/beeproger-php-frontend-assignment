@@ -55,11 +55,18 @@ export const useTodosFunctions = () => {
     dispatch(todoActions.openTodoDialog());
   };
 
+  const openViewTodoDialog = (id: number) => {
+    dispatch(todoActions.setSelectedTodoId(id));
+    dispatch(todoActions.setView(ETodoDialogView.View_Todo_View));
+    dispatch(todoActions.openTodoDialog());
+  };
+
   return {
     deleteTodo,
     deleting,
     closeDialog,
     openEditTodoDialog,
+    openViewTodoDialog,
     changeTodoStatus,
     updating
   };

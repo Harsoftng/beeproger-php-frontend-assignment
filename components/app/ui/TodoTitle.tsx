@@ -2,11 +2,19 @@ import React from 'react';
 import Image from 'next/image';
 import { ITodo } from '../types/ITodo';
 import TodoPriority from './TodoPriority';
+import { useTodosFunctions } from '../api/useTodosFunctions';
 
 const TodoTitle = ({ todo }: { todo: ITodo }) => {
+  const { openViewTodoDialog } = useTodosFunctions();
+
+  const onViewTodo = async () => {
+    await openViewTodoDialog(todo.id);
+  };
   return (
     <div className="tooltip tooltip-primary" data-tip="View Todo">
-      <div className="flex items-center space-x-3 cursor-pointer">
+      <div
+        className="flex items-center space-x-3 cursor-pointer"
+        onClick={onViewTodo}>
         <div className="avatar">
           <div className="mask mask-squircle w-12 h-12">
             <Image
