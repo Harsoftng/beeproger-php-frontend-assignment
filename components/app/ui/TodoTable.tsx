@@ -10,7 +10,7 @@ const TodoTable = (props: ITodoTableProps) => {
   return (
     <div className="overflow-x-auto w-full" key={option.id}>
       <TodoSectionTitle isAllMode={isAllMode} option={option} />
-      <table className="table w-full">
+      <table className="table table-zebra w-full">
         <TodoTableColumns />
         <TodoTableContent todos={todos} />
         <TodoTableFooter />

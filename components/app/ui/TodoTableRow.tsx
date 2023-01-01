@@ -3,10 +3,17 @@ import { ITodo } from '../types/ITodo';
 import TodoTitle from './TodoTitle';
 import Utilities from '../../shared/utils/Utilities';
 import TodoActions from './TodoActions';
+import clsx from 'clsx';
+import { ETodoPriority } from '../types/ETodoPriority';
 
 const TodoTableRow = ({ todo }: { todo: ITodo }) => {
   return (
-    <tr>
+    <tr
+      className={clsx('border-l-4', {
+        'border-red-800': todo.priority === ETodoPriority.HIGH,
+        'border-orange-300': todo.priority === ETodoPriority.NORMAL,
+        'border-cyan-300': todo.priority === ETodoPriority.LOW
+      })}>
       <td>
         <div
           className="tooltip tooltip-primary tooltip-right"
