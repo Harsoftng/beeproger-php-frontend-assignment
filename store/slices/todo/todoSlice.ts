@@ -2,12 +2,14 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { ITodo } from '../../../components/app/types/ITodo';
 import { ETodoDialogView } from '../../types/ETodoDialogView';
 import { ITodoState } from '../../types/ITodoState';
+import { AllTodoRoutingStatusType } from '../../../components/app/types/ITodoStatusProps';
 
 const defaultPaymentState: ITodoState = {
   dialogIsOpen: false,
   loading: false,
   view: ETodoDialogView.View_Todo_View,
-  todos: []
+  todos: [],
+  currentStatus: 'all'
 };
 
 const todoSlice = createSlice({
@@ -36,6 +38,13 @@ const todoSlice = createSlice({
     },
     clearPayments(state: ITodoState) {
       state.todos = [];
+    },
+
+    setCurrentStatus(
+      state: ITodoState,
+      action: PayloadAction<AllTodoRoutingStatusType>
+    ) {
+      state.currentStatus = action.payload;
     },
 
     setSelectedTodoId(state: ITodoState, action: PayloadAction<number>) {

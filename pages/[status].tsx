@@ -3,7 +3,7 @@ import Todo from '../components/app/Todo';
 import AppTitle from '../components/shared/misc/AppTitle';
 import { useRouter } from 'next/router';
 
-export default function Home() {
+export default function HomeFilter() {
   const router = useRouter();
   const status = router.query?.status?.toString() || 'all';
 
