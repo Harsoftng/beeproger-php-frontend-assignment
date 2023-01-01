@@ -4,10 +4,10 @@ import { ITodo } from '../types/ITodo';
 import clsx from 'clsx';
 
 const TodoActions = ({ todo }: { todo: ITodo }) => {
-  const { deleteMessage, deleting, openEditTodoDialog } = useTodosFunctions();
+  const { deleteTodo, deleting, openEditTodoDialog } = useTodosFunctions();
 
   const onDeleteTodo = async () => {
-    await deleteMessage(todo.id);
+    await deleteTodo(todo.id);
   };
 
   return (

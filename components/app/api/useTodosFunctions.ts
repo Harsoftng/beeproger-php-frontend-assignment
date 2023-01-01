@@ -4,13 +4,16 @@ import { useAppDispatch } from '../../../store/hooks/useAppDispatch';
 import { deleteTodoApi } from './deleteTodoApi';
 import { todoActions } from '../../../store/slices/todo/todoSlice';
 import { ETodoDialogView } from '../../../store/types/ETodoDialogView';
+import { ETodoStatus } from '../types/ETodoStatus';
+import { changeTodoStatusApi } from './changeTodoStatusApi';
 
 export const useTodosFunctions = () => {
   const dispatch = useAppDispatch();
   const { showConfirmDialog } = useShowConfirmDialog();
   const [deleting, setDeleting] = useState(false);
+  const [updating, setUpdating] = useState(false);
 
-  const deleteMessage = async (id: number) => {
+  const deleteTodo = async (id: number) => {
     setDeleting(true);
     if (!id) {
       setDeleting(false);
@@ -30,6 +33,18 @@ export const useTodosFunctions = () => {
     setDeleting(false);
   };
 
+  const changeTodoStatus = async (id: number, status: ETodoStatus) => {
+    setUpdating(true);
+    if (!status) {
+      setUpdating(false);
+      return;
+    }
+
+    await dispatch(changeTodoStatusApi({ id, status }));
+
+    setUpdating(false);
+  };
+
   const closeDialog = () => {
     dispatch(todoActions.closeTodoDialog());
   };
@@ -40,5 +55,12 @@ export const useTodosFunctions = () => {
     dispatch(todoActions.openTodoDialog());
   };
 
-  return { deleteMessage, deleting, closeDialog, openEditTodoDialog };
+  return {
+    deleteTodo,
+    deleting,
+    closeDialog,
+    openEditTodoDialog,
+    changeTodoStatus,
+    updating
+  };
 };

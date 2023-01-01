@@ -5,6 +5,7 @@ import Utilities from '../../shared/utils/Utilities';
 import TodoActions from './TodoActions';
 import clsx from 'clsx';
 import { ETodoPriority } from '../types/ETodoPriority';
+import TodoCheckBox from './TodoCheckBox';
 
 const TodoTableRow = ({ todo }: { todo: ITodo }) => {
   return (
@@ -15,13 +16,7 @@ const TodoTableRow = ({ todo }: { todo: ITodo }) => {
         'border-cyan-300': todo.priority === ETodoPriority.LOW
       })}>
       <td>
-        <div
-          className="tooltip tooltip-primary tooltip-right"
-          data-tip="Change Todo Status">
-          <label>
-            <input type="checkbox" className="checkbox" />
-          </label>
-        </div>
+        <TodoCheckBox todo={todo} />
       </td>
       <td>
         <TodoTitle todo={todo} />
