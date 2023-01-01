@@ -21,6 +21,7 @@
     "autoprefixer": "^10.4.13",
     "axios": "^1.2.2",
     "daisyui": "^2.46.0",
+    "date-fns": "^2.29.3",
     "formik": "^2.2.9",
     "framer-motion": "^8.0.2",
     "next": "13.1.1",

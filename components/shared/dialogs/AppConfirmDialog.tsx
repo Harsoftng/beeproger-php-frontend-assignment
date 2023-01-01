@@ -61,16 +61,12 @@ export default function AppConfirmDialog(
                 leave="ease-in duration-200"
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95">
-                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all glass">
                   <div className="mt-2">
-                    <p className="text-sm text-gray-500">{message}</p>
+                    <p className="text-lg text-accent">{message}</p>
                   </div>
 
-                  <div className="mt-2">
-                    <p className="text-sm text-gray-500">{message}</p>
-                  </div>
-
-                  <div className="mt-4">
+                  <div className="mt-8 flex items-center justify-end gap-3">
                     <button
                       onClick={onOkClick}
                       className={clsx('btn mt-30', okButtonClass)}>
@@ -88,7 +84,7 @@ export default function AppConfirmDialog(
                         />
                       </svg>
 
-                      <span className="btn-wrapper--label fs16">{okText}</span>
+                      <span className="ml-1">{okText}</span>
                     </button>
 
                     <button onClick={onCancelClick} className="btn">
@@ -105,9 +101,7 @@ export default function AppConfirmDialog(
                           d="M6 18L18 6M6 6l12 12"
                         />
                       </svg>
-                      <span className="btn-wrapper--label fs16">
-                        {cancelText}
-                      </span>
+                      <span className="ml-1">{cancelText}</span>
                     </button>
                   </div>
                 </Dialog.Panel>

@@ -6,11 +6,12 @@ import {
   ToastType
 } from '../types/IAppContextProps';
 import { getDefaultTheme } from '../../components/shared/utils/functions';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const AppContext = React.createContext<IAppContextProps>({
   theme: getDefaultTheme(),
   changeTheme: (f: ThemeType) => f,
-  showToast: (message: string, type: ToastType) => [message, type]
+  showToast: (message: string, type?: ToastType) => [message, type]
 });
 
 const AppContextProvider = ({ children }: { children: React.ReactNode }) => {

@@ -5,7 +5,7 @@ import { ITodoState } from '../../types/ITodoState';
 import { AllTodoRoutingStatusType } from '../../../components/app/types/ITodoStatusProps';
 
 const defaultPaymentState: ITodoState = {
-  dialogIsOpen: false,
+  dialogIsOpen: true,
   loading: false,
   view: ETodoDialogView.View_Todo_View,
   todos: [],
@@ -29,6 +29,17 @@ const todoSlice = createSlice({
     addTodo(state: ITodoState, action: PayloadAction<ITodo>) {
       state.todos = [...state.todos, action.payload];
     },
+    deleteTodo(state: ITodoState, action: PayloadAction<number>) {
+      state.todos = state.todos?.filter(
+        (todo: ITodo) => todo.id !== action.payload
+      );
+    },
+    updateTodo(state: ITodoState, action: PayloadAction<ITodo>) {
+      const otherTodos: ITodo[] = state.todos?.filter(
+        (todo: ITodo) => todo.id !== action.payload.id
+      );
+      state.todos = [...otherTodos, action.payload];
+    },
     addTodos(state: ITodoState, action: PayloadAction<ITodo[]>) {
       state.todos = [...state.todos, ...action.payload];
     },
@@ -36,7 +47,7 @@ const todoSlice = createSlice({
     setTodos(state: ITodoState, action: PayloadAction<ITodo[]>) {
       state.todos = action.payload;
     },
-    clearPayments(state: ITodoState) {
+    clearTodos(state: ITodoState) {
       state.todos = [];
     },
 
@@ -45,6 +56,10 @@ const todoSlice = createSlice({
       action: PayloadAction<AllTodoRoutingStatusType>
     ) {
       state.currentStatus = action.payload;
+    },
+
+    setView(state: ITodoState, action: PayloadAction<ETodoDialogView>) {
+      state.view = action.payload;
     },
 
     setSelectedTodoId(state: ITodoState, action: PayloadAction<number>) {

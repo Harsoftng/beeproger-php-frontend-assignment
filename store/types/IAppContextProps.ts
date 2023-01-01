@@ -8,5 +8,5 @@ export interface IAppContextProps {
   changeTheme: (theme: ThemeType) => void;
 
   // eslint-disable-next-line no-unused-vars
-  showToast: (message: string, type: ToastType) => void;
+  showToast: (message: string, type?: ToastType) => void;
 }

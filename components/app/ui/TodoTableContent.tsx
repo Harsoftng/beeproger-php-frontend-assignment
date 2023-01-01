@@ -1,10 +1,11 @@
 import React from 'react';
 import TodoTableRows from './TodoTableRows';
+import { ITodo } from '../types/ITodo';
 
-const TodoTableContent = () => {
+const TodoTableContent = ({ todos }: { todos: ITodo[] }) => {
   return (
     <tbody>
-      <TodoTableRows />
+      <TodoTableRows todos={todos} />
     </tbody>
   );
 };
