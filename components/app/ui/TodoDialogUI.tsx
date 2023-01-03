@@ -37,25 +37,29 @@ const TodoDialogUI = () => {
 
         <div className="fixed inset-0 overflow-y-auto glass">
           <div className="flex min-h-full items-center justify-center p-4 text-center">
-            {isLoading || todo?.id !== selectedTodoId ? (
-              <div className="p-10">
-                <BeatLoader loading={true} />
-              </div>
+            {view === ETodoDialogView.Create_Todo_View ? (
+              <CreateTodoUI />
             ) : (
               <>
-                {todo &&
-                  todo.id === selectedTodoId &&
-                  view === ETodoDialogView.View_Todo_View && (
-                    <ViewTodoUI todo={todo} />
-                  )}
+                {isLoading || todo?.id !== selectedTodoId ? (
+                  <div className="p-10">
+                    <BeatLoader loading={true} />
+                  </div>
+                ) : (
+                  <>
+                    {todo &&
+                      todo.id === selectedTodoId &&
+                      view === ETodoDialogView.View_Todo_View && (
+                        <ViewTodoUI todo={todo} />
+                      )}
 
-                {todo &&
-                  todo.id === selectedTodoId &&
-                  view === ETodoDialogView.Edit_Todo_View && (
-                    <EditTodoUI todo={todo} />
-                  )}
-
-                {view === ETodoDialogView.Create_Todo_View && <CreateTodoUI />}
+                    {todo &&
+                      todo.id === selectedTodoId &&
+                      view === ETodoDialogView.Edit_Todo_View && (
+                        <EditTodoUI todo={todo} />
+                      )}
+                  </>
+                )}
               </>
             )}
           </div>

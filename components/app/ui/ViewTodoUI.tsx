@@ -27,7 +27,7 @@ const ViewTodoUI = ({ todo }: { todo: ITodo }) => {
           </svg>
         </button>
       </div>
-      <div className="card lg:min-w-[50%] xl:min-w-[40%] md:min-w-[80%] sm:min-w-[90%] min-w-[90%] glass shadow-xl rounded-t-none">
+      <div className="card lg:min-w-[50%] xl:min-w-[40%] md:min-w-[80%] sm:min-w-[90%] min-w-[90%] bg-gray-300 shadow-xl rounded-t-none">
         <div className="flex items-start justify-start gap-0">
           <div className="flex flex-col w-[45%]">
             <figure className="px-5 pt-5 w-full mb-6">

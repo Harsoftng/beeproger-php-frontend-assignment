@@ -4,7 +4,7 @@ import { IContentProps } from './types/IContentProps';
 const Content = (props: IContentProps): React.ReactElement => {
   const { children } = props;
   return (
-    <div className="pt-8 bg-gray dark:glass w-screen pb-52 min-h-[100vh]">
+    <div className="p-5 bg-gray dark:glass w-screen pb-52 min-h-[100vh] h-auto overflow-y-auto">
       {children}
     </div>
   );
