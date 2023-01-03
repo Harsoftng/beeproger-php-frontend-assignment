@@ -7,6 +7,7 @@ import TodoTable from './TodoTable';
 import { AllTodoRoutingStatusType } from '../types/ITodoStatusProps';
 import { ITodo } from '../types/ITodo';
 import { ETodoStatus } from '../types/ETodoStatus';
+import CreateTaskButton from './CreateTaskButton';
 
 const TodoTableUI = () => {
   const { currentStatus, todos } = useTodoState();
@@ -47,6 +48,7 @@ const TodoTableUI = () => {
 
   return (
     <>
+      <CreateTaskButton />
       {isLoading && (
         <div className="flex items-center justify-center mb-2">
           <BarLoader loading={isLoading} width={'100%'} />

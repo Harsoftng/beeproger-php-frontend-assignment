@@ -21,6 +21,8 @@ const todoSlice = createSlice({
     },
     closeTodoDialog(state: ITodoState) {
       state.dialogIsOpen = false;
+      state.selectedTodoId = 0;
+      state.view = ETodoDialogView.View_Todo_View;
     },
     setLoading(state: ITodoState, action: PayloadAction<boolean>) {
       state.loading = action.payload;
@@ -41,7 +43,13 @@ const todoSlice = createSlice({
       state.todos = [...otherTodos, action.payload];
     },
     addTodos(state: ITodoState, action: PayloadAction<ITodo[]>) {
-      state.todos = [...state.todos, ...action.payload];
+      const allTodoIDs: number[] = state.todos?.map((todo: ITodo) => todo.id);
+
+      const newTodos: ITodo[] = action.payload?.filter(
+        (todo: ITodo) => !allTodoIDs.includes(todo.id)
+      );
+
+      state.todos = [...state.todos, ...newTodos];
     },
 
     setTodos(state: ITodoState, action: PayloadAction<ITodo[]>) {

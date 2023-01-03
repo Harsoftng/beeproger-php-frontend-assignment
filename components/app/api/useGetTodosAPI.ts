@@ -14,22 +14,22 @@ export const useGetTodosAPI = (status: AllTodoRoutingStatusType) => {
   const endPoint =
     status === 'all' ? '/api/todos/' : `/api/todos/status/${status}`;
 
-  const { data, error, isLoading, isValidating } = useSWR<ITodoData>(endPoint, {
+  const { data, error } = useSWR<ITodoData>(endPoint, {
     onSuccess: (data: ITodoData) => {
       const todos: ITodo[] = data?.data || [];
 
       if (todos && todos?.length > 0) {
-        dispatch(todoActions.setTodos(todos));
+        dispatch(todoActions.addTodos(todos));
         console.log({ todos });
       }
     }
   });
 
-  // const isLoading: boolean = !data && !error;
+  const isLoading: boolean = !data && !error;
 
   return {
     data,
     error: error,
-    isLoading: isLoading || isValidating
+    isLoading: isLoading
   };
 };

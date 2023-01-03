@@ -12,7 +12,7 @@ const Todo = ({ status = 'all' }: ITodoStatusProps): React.ReactElement => {
   useEffect(() => {
     if (status) {
       dispatch(todoActions.setCurrentStatus(status));
-      dispatch(todoActions.clearTodos());
+      // dispatch(todoActions.clearTodos());
     }
   }, [status]);
 

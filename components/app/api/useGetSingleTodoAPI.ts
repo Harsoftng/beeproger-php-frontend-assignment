@@ -10,7 +10,7 @@ export const useGetSingleTodoAPI = (id: number) => {
   const [todo, setTodo] = useState<ITodo>();
   const endPoint = `/api/todos/${id}`;
 
-  const { data, error, isLoading, isValidating } = useSWR<ITodoData>(endPoint, {
+  const { data, error } = useSWR<ITodoData>(id > 0 ? endPoint : null, {
     onSuccess: (data: ITodoData) => {
       const todo: ITodo = data?.data || [];
 
@@ -21,12 +21,15 @@ export const useGetSingleTodoAPI = (id: number) => {
     }
   });
 
-  // const isLoading: boolean = !data && !error;
+  console.log({ data });
+
+  const isLoading: boolean = !data && !error;
 
   return {
     data,
     error: error,
-    isLoading: isLoading || isValidating,
-    todo
+    isLoading,
+    todo,
+    setTodo
   };
 };

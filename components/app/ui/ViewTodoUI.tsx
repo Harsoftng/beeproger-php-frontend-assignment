@@ -32,7 +32,7 @@ const ViewTodoUI = ({ todo }: { todo: ITodo }) => {
           <div className="flex flex-col w-[45%]">
             <figure className="px-5 pt-5 w-full mb-6">
               <img
-                src={todo.photoUrl || '/'}
+                src={todo.photoUrl || '/no-task-image.png'}
                 alt="Shoes"
                 className="rounded-xl object-fill h-[250px] w-80"
               />
