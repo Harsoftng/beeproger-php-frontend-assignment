@@ -8,6 +8,7 @@ import { ETodoStatus } from '../types/ETodoStatus';
 import { changeTodoStatusApi } from './changeTodoStatusApi';
 import { IFormInitialValues } from '../types/IFormInitialValues';
 import { createTodoApi } from './createTodoApi';
+import { editTodoApi } from './editTodoApi';
 
 export const useTodosFunctions = () => {
   const dispatch = useAppDispatch();
@@ -60,6 +61,19 @@ export const useTodosFunctions = () => {
     setUpdating(false);
   };
 
+  const editTodo = async (
+    values: IFormInitialValues & { photoUpload?: File; id: number }
+  ) => {
+    setUpdating(true);
+    if (!values) {
+      setUpdating(false);
+      return;
+    }
+
+    await dispatch(editTodoApi({ ...values }));
+    setUpdating(false);
+  };
+
   const closeDialog = () => {
     dispatch(todoActions.closeTodoDialog());
   };
@@ -85,6 +99,7 @@ export const useTodosFunctions = () => {
   return {
     deleteTodo,
     createTodo,
+    editTodo,
     deleting,
     closeDialog,
     openEditTodoDialog,

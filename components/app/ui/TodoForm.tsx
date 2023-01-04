@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
-import { useAppDispatch } from '../../../store/hooks/useAppDispatch';
 import { Form, Formik } from 'formik';
 import { BeatLoader } from 'react-spinners';
 import AppInputField from '../../shared/forms/AppInputField';
 import Validators from '../../shared/utils/Validators';
 import * as Yup from 'yup';
-import { createTodoApi } from '../api/createTodoApi';
 import AppTextAreaField from '../../shared/forms/AppTextAreaField';
 import AppRadioGroupField from '../../shared/forms/AppRadioGroupField';
 import { ITodo } from '../types/ITodo';
@@ -20,8 +18,7 @@ const TodoForm = ({
   todo?: ITodo;
   mode: 'edit' | 'create';
 }) => {
-  const dispatch = useAppDispatch();
-  const { createTodo, updating } = useTodosFunctions();
+  const { createTodo, editTodo, updating } = useTodosFunctions();
   const [taskImage, setTaskImage] = useState<File>();
 
   const initialValues: IFormInitialValues = {
@@ -40,10 +37,7 @@ const TodoForm = ({
     startDate: Validators.validateString(false)
   });
 
-  async function submitFormHandler(
-    values: IFormInitialValues
-    //{setErrors}: FormikHelpers<IFormInitialValues>
-  ) {
+  async function submitFormHandler(values: IFormInitialValues) {
     console.log({ values });
 
     if (mode === 'edit' && !todo?.id) {
@@ -54,7 +48,7 @@ const TodoForm = ({
     }
 
     if (mode === 'edit') {
-      dispatch(createTodoApi({ ...values }));
+      await editTodo({ ...values, photoUpload: taskImage, id: todo?.id || 0 });
     } else {
       await createTodo({ ...values, photoUpload: taskImage });
     }
@@ -147,7 +141,7 @@ const TodoForm = ({
                     <BeatLoader color="#292524" loading={true} />
                   </div>
                 ) : (
-                  <>Create Task</>
+                  <>{mode === 'edit' ? 'Edit Task' : 'Create Task'}</>
                 )}
               </button>
             </div>
