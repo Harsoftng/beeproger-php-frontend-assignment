@@ -4,7 +4,10 @@ import type { AppProps } from 'next/app';
 import MainLayout from '../components/layout/MainLayout';
 import AppContextProvider from '../store/context/AppContext';
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({
+  Component,
+  pageProps
+}: AppProps): React.ReactElement {
   return (
     <AppContextProvider>
       <MainLayout>

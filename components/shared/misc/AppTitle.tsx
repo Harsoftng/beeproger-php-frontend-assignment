@@ -7,8 +7,12 @@ interface AppTitleProps {
   children?: React.ReactNode;
 }
 
-const AppTitle = ({ title, separator, children }: AppTitleProps) => {
-  let pageTitle =
+const AppTitle = ({
+  title,
+  separator,
+  children
+}: AppTitleProps): React.ReactElement => {
+  let pageTitle: string =
     title + (separator || ' - ') + process.env.NEXT_PUBLIC_COMPANY_NAME;
 
   return (

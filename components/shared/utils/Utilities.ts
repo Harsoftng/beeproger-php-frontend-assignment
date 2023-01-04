@@ -1,6 +1,6 @@
 import { format, parse } from 'date-fns';
 
-export function getUserFriendlyDate(date: string) {
+export function getUserFriendlyDate(date: string): string {
   if (date) {
     date = date?.toString().substring(0, 10);
     return format(parse(date, 'yyyy-MM-dd', new Date()), 'MMM dd, yyyy');
@@ -9,7 +9,7 @@ export function getUserFriendlyDate(date: string) {
   }
 }
 
-export function getUserFriendlyDateTime(date: string) {
+export function getUserFriendlyDateTime(date: string): string {
   if (date) {
     return format(
       Date.parse(date || new Date().toDateString()),
@@ -20,7 +20,7 @@ export function getUserFriendlyDateTime(date: string) {
   }
 }
 
-export function getUserFriendlyTime(date: string) {
+export function getUserFriendlyTime(date: string): string {
   if (date) {
     return format(Date.parse(date || new Date().toDateString()), 'hh:mm a');
   } else {
@@ -28,15 +28,15 @@ export function getUserFriendlyTime(date: string) {
   }
 }
 
-export function getGenericDateFromDate(date: number | Date) {
+export function getGenericDateFromDate(date: number | Date): string {
   return format(date, 'dd/MM/yyyy');
 }
 
-export function getSQLDateFromDate(date: number | Date) {
+export function getSQLDateFromDate(date: number | Date): string {
   return format(date, 'yyyy-MM-dd');
 }
 
-export function getSQLDate() {
+export function getSQLDate(): string {
   return format(new Date(), 'yyyy-MM-dd');
 }
 
@@ -44,7 +44,7 @@ export function getDateFromSQLDate(
   date: string,
   trim = false,
   isDateTime = true
-) {
+): Date {
   let genDate = new Date();
   let format = isDateTime ? 'yyyy-MM-dd hh:mm:ss' : 'yyyy-MM-dd';
   if (date) {
@@ -57,16 +57,8 @@ export function getDateFromSQLDate(
   return genDate;
 }
 
-export function getGenericDate() {
+export function getGenericDate(): string {
   return format(new Date(), 'dd/MM/yyyy');
-}
-
-export function cleanNumber(number = '') {
-  let n = number ? number.replace(',', '') : '';
-  n = n.replace(',', '');
-  n = n.replace(',', '');
-  n = n.replace(',', '');
-  return n;
 }
 
 const Utilities = {
@@ -77,7 +69,6 @@ const Utilities = {
   getGenericDateFromDate,
   getDateFromSQLDate,
   getSQLDateFromDate,
-  getSQLDate,
-  cleanNumber
+  getSQLDate
 };
 export default Utilities;

@@ -9,12 +9,10 @@ import { useGetSingleTodoAPI } from '../api/useGetSingleTodoAPI';
 import { BeatLoader } from 'react-spinners';
 import CreateTodoUI from './CreateTodoUI';
 
-const TodoDialogUI = () => {
+const TodoDialogUI = (): React.ReactElement => {
   const { dialogIsOpen, view, selectedTodoId } = useTodoState();
   const { closeDialog } = useTodosFunctions();
   const { isLoading, todo } = useGetSingleTodoAPI(selectedTodoId || 0);
-
-  console.log({ selectedTodoId, todo });
 
   return (
     <Transition appear show={dialogIsOpen} as={Fragment}>

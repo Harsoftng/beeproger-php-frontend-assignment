@@ -2,7 +2,7 @@ import React from 'react';
 import { useTodosFunctions } from '../api/useTodosFunctions';
 import TodoForm from './TodoForm';
 
-const CreateTodoUI = () => {
+const CreateTodoUI = (): React.ReactElement => {
   const { closeDialog } = useTodosFunctions();
   return (
     <div className="flex items-center justify-center flex-col min-w-[100%]">
@@ -25,7 +25,7 @@ const CreateTodoUI = () => {
         </button>
       </div>
       <div className="card lg:min-w-[40%] xl:min-w-[40%] md:min-w-[80%] sm:min-w-[90%] min-w-[90%] bg-white dark:glass shadow-xl rounded-t-none p-10">
-        <TodoForm />
+        <TodoForm mode="create" />
       </div>
     </div>
   );

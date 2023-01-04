@@ -1,7 +1,11 @@
 import React from 'react';
 import { ETodoPriority } from '../types/ETodoPriority';
 
-const TodoPriority = ({ priority }: { priority: ETodoPriority }) => {
+const TodoPriority = ({
+  priority
+}: {
+  priority: ETodoPriority;
+}): React.ReactElement => {
   const priorityUI = {
     [ETodoPriority.LOW]: (
       <div className="badge bg-cyan-500 font-bold text-xs capitalize">

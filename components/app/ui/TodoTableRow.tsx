@@ -7,7 +7,7 @@ import clsx from 'clsx';
 import { ETodoPriority } from '../types/ETodoPriority';
 import TodoCheckBox from './TodoCheckBox';
 
-const TodoTableRow = ({ todo }: { todo: ITodo }) => {
+const TodoTableRow = ({ todo }: { todo: ITodo }): React.ReactElement => {
   return (
     <tr
       className={clsx('border-l-4', {

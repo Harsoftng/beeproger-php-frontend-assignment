@@ -4,10 +4,10 @@ import { ITodo } from '../types/ITodo';
 import TodoPriority from './TodoPriority';
 import { useTodosFunctions } from '../api/useTodosFunctions';
 
-const TodoTitle = ({ todo }: { todo: ITodo }) => {
+const TodoTitle = ({ todo }: { todo: ITodo }): React.ReactElement => {
   const { openViewTodoDialog } = useTodosFunctions();
 
-  const onViewTodo = async () => {
+  const onViewTodo = async (): Promise<void> => {
     await openViewTodoDialog(todo.id);
   };
   return (

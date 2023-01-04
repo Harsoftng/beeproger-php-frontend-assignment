@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { BarLoader } from 'react-spinners';
 
-const SuspenseLoading = () => {
+const SuspenseLoading = (): React.ReactElement => {
   const [show, setShow] = useState(false);
   useEffect(() => {
     let timeout = setTimeout(() => setShow(true), 300);

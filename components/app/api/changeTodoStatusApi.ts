@@ -24,8 +24,6 @@ export const changeTodoStatusApi = createAsyncThunk(
         `/api/todos/status/${inputData.id}/${inputData.status}`
       );
 
-      console.log({ response });
-
       if (response?.data && response?.data?.title) {
         toast('Status Changed', { type: 'success' });
         dispatch(todoActions.updateTodo(response?.data));
@@ -34,8 +32,6 @@ export const changeTodoStatusApi = createAsyncThunk(
         toast(response?.data?.message, { type: 'error' });
       }
     } catch (error: any) {
-      console.log({ error });
-
       if (!error?.response) {
         toast('Network Error! Could not contact Beeproger Servers!', {
           type: 'error'

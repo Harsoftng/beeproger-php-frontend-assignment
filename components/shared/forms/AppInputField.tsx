@@ -4,7 +4,7 @@ import { useDebouncedCallback } from 'use-debounce';
 import clsx from 'clsx';
 import { IAppInputFieldProps } from '../types/IAppInputFieldProps';
 
-const AppInputField = (props: IAppInputFieldProps) => {
+const AppInputField = (props: IAppInputFieldProps): React.ReactElement => {
   const {
     readOnly,
     label,

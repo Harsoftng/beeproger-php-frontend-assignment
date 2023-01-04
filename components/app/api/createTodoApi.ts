@@ -41,10 +41,8 @@ export const createTodoApi = createAsyncThunk(
           headers: { 'Content-Type': 'multipart/form-data' }
         }
       );
-      console.log({ resp: response });
 
       if (response?.data?.data && response?.data?.data?.title) {
-        console.log({ response });
         toast('Success', { type: 'success' });
         dispatch(todoActions.closeTodoDialog());
         dispatch(todoActions.addTodo(response?.data?.data));
@@ -53,8 +51,6 @@ export const createTodoApi = createAsyncThunk(
         toast(response?.data?.message, { type: 'error' });
       }
     } catch (error: any) {
-      console.log({ error });
-
       if (!error?.response) {
         toast('Network Error! Could not contact Beeproger Servers!', {
           type: 'error'

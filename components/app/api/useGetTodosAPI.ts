@@ -11,7 +11,7 @@ interface ITodoData {
 export const useGetTodosAPI = (status: AllTodoRoutingStatusType) => {
   const dispatch = useAppDispatch();
 
-  const endPoint =
+  const endPoint: string =
     status === 'all' ? '/api/todos/' : `/api/todos/status/${status}`;
 
   const { data, error } = useSWR<ITodoData>(endPoint, {
@@ -20,7 +20,6 @@ export const useGetTodosAPI = (status: AllTodoRoutingStatusType) => {
 
       if (todos && todos?.length > 0) {
         dispatch(todoActions.addTodos(todos));
-        console.log({ todos });
       }
     }
   });

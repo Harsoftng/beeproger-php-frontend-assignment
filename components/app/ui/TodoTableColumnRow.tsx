@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TodoTableColumnRow = () => {
+const TodoTableColumnRow = (): React.ReactElement => {
   return (
     <tr>
       <th style={{ width: '10%' }}>

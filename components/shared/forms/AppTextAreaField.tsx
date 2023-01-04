@@ -4,7 +4,9 @@ import { useDebouncedCallback } from 'use-debounce';
 import clsx from 'clsx';
 import { IAppTextAreaFieldProps } from '../types/IAppTextAreaFieldProps';
 
-const AppTextAreaField = (props: IAppTextAreaFieldProps) => {
+const AppTextAreaField = (
+  props: IAppTextAreaFieldProps
+): React.ReactElement => {
   const {
     readOnly,
     label,

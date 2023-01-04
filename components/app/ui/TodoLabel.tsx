@@ -1,6 +1,12 @@
 import React from 'react';
 
-const TodoLabel = ({ label, value }: { label: string; value?: string }) => {
+const TodoLabel = ({
+  label,
+  value
+}: {
+  label: string;
+  value?: string;
+}): React.ReactElement => {
   return (
     <div className="text-left min-w-full pr-3 mt-2">
       <div className="font-extrabold text-gray-600">{label}</div>

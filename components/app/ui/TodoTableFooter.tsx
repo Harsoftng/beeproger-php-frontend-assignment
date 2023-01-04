@@ -1,7 +1,7 @@
 import React from 'react';
 import TodoTableColumnRow from './TodoTableColumnRow';
 
-const TodoTableFooter = () => {
+const TodoTableFooter = (): React.ReactElement => {
   return (
     <tfoot>
       <TodoTableColumnRow />

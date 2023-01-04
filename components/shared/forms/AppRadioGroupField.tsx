@@ -4,7 +4,9 @@ import clsx from 'clsx';
 import { IRadioGroupComponentType } from '../types/IRadioGroupComponentType';
 import { IAppRadioGroupFieldProps } from '../types/IAppRadioGroupFieldProps';
 
-const AppRadioGroupField = (props: IAppRadioGroupFieldProps) => {
+const AppRadioGroupField = (
+  props: IAppRadioGroupFieldProps
+): React.ReactElement => {
   const { label, name, components } = props;
   const [, meta] = useField(props);
 

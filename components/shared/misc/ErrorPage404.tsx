@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
-export default function ErrorPage404() {
+export default function ErrorPage404(): React.ReactElement {
   return (
     <div className="flex items-center justify-center flex-col w-screen mt-40 rounded-2xl">
       <div className="flex flex-col justify-center items-center gap-4 glass p-6 rounded-2xl overflow-hidden">

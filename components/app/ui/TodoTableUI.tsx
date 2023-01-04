@@ -9,7 +9,7 @@ import { ITodo } from '../types/ITodo';
 import { ETodoStatus } from '../types/ETodoStatus';
 import CreateTaskButton from './CreateTaskButton';
 
-const TodoTableUI = () => {
+const TodoTableUI = (): React.ReactElement => {
   const { currentStatus, todos } = useTodoState();
   const { isLoading } = useGetTodosAPI(currentStatus);
 
@@ -49,11 +49,13 @@ const TodoTableUI = () => {
   return (
     <>
       <CreateTaskButton />
+
       {isLoading && (
         <div className="flex items-center justify-center mb-2">
           <BarLoader loading={isLoading} width={'100%'} />
         </div>
       )}
+
       {options.map((option: ITableDisplayOptions) => (
         <TodoTable
           todos={todoData(option.status)}

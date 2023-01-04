@@ -17,7 +17,7 @@ const TodoForm = ({
 }: {
   todo?: ITodo;
   mode: 'edit' | 'create';
-}) => {
+}): React.ReactElement => {
   const { createTodo, editTodo, updating } = useTodosFunctions();
   const [taskImage, setTaskImage] = useState<File>();
 
@@ -31,15 +31,13 @@ const TodoForm = ({
 
   const validationScheme = Yup.object({
     title: Validators.validateString(true),
-    description: Validators.validateString(true),
+    description: Validators.validateString(false),
     priority: Validators.validateString(true),
     status: Validators.validateString(true),
     startDate: Validators.validateString(false)
   });
 
-  async function submitFormHandler(values: IFormInitialValues) {
-    console.log({ values });
-
+  async function submitFormHandler(values: IFormInitialValues): Promise<void> {
     if (mode === 'edit' && !todo?.id) {
       toast('Invalid form input, select a valid todo to update!', {
         type: 'error'

@@ -24,8 +24,6 @@ export const deleteTodoApi = createAsyncThunk(
         `/api/todos/${inputData.id}`
       );
 
-      console.log({ response });
-
       if (response?.data?.status && response?.data?.message) {
         toast(response?.data?.message, { type: 'success' });
         dispatch(todoActions.deleteTodo(inputData.id));
@@ -34,8 +32,6 @@ export const deleteTodoApi = createAsyncThunk(
         toast(response?.data?.message, { type: 'error' });
       }
     } catch (error: any) {
-      console.log({ error });
-
       if (!error?.response) {
         toast('Network Error! Could not contact Beeproger Servers!', {
           type: 'error'

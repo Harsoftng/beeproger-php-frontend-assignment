@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import Link from 'next/link';
 import useTodoState from '../../../store/hooks/todo/useTodoState';
 
-const TodoStatusSwitcher = () => {
+const TodoStatusSwitcher = (): React.ReactElement => {
   const { currentStatus: status } = useTodoState();
 
   return (

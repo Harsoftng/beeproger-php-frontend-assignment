@@ -4,7 +4,7 @@ import { useTodosFunctions } from '../api/useTodosFunctions';
 import TodoLabel from './TodoLabel';
 import Utilities from '../../shared/utils/Utilities';
 
-const ViewTodoUI = ({ todo }: { todo: ITodo }) => {
+const ViewTodoUI = ({ todo }: { todo: ITodo }): React.ReactElement => {
   const { closeDialog, openEditTodoDialog } = useTodosFunctions();
 
   return (

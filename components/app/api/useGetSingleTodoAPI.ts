@@ -8,7 +8,7 @@ interface ITodoData {
 
 export const useGetSingleTodoAPI = (id: number) => {
   const [todo, setTodo] = useState<ITodo>();
-  const endPoint = `/api/todos/${id}`;
+  const endPoint: string = `/api/todos/${id}`;
 
   const { data, error } = useSWR<ITodoData>(id > 0 ? endPoint : null, {
     onSuccess: (data: ITodoData) => {
@@ -16,12 +16,9 @@ export const useGetSingleTodoAPI = (id: number) => {
 
       if (todo) {
         setTodo(todo);
-        console.log({ todo });
       }
     }
   });
-
-  console.log({ data });
 
   const isLoading: boolean = !data && !error;
 

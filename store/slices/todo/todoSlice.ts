@@ -4,7 +4,7 @@ import { ETodoDialogView } from '../../types/ETodoDialogView';
 import { ITodoState } from '../../types/ITodoState';
 import { AllTodoRoutingStatusType } from '../../../components/app/types/ITodoStatusProps';
 
-const defaultPaymentState: ITodoState = {
+const defaultTodoState: ITodoState = {
   dialogIsOpen: false,
   loading: false,
   view: ETodoDialogView.View_Todo_View,
@@ -13,8 +13,8 @@ const defaultPaymentState: ITodoState = {
 };
 
 const todoSlice = createSlice({
-  name: 'payments',
-  initialState: defaultPaymentState,
+  name: 'todos',
+  initialState: defaultTodoState,
   reducers: {
     openTodoDialog(state: ITodoState) {
       state.dialogIsOpen = true;
@@ -77,7 +77,7 @@ const todoSlice = createSlice({
       state.selectedTodoId = 0;
     },
     clearTodoState() {
-      return defaultPaymentState;
+      return defaultTodoState;
     }
   }
 });

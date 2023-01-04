@@ -1,9 +1,9 @@
-import axios, { AxiosRequestHeaders } from 'axios';
+import axios, { AxiosInstance, AxiosRequestHeaders } from 'axios';
 
 export default function useAxiosClient(
   baseUrl?: string,
   otherHeaders?: AxiosRequestHeaders
-) {
+): AxiosInstance {
   const header = {
     ...otherHeaders
   };
@@ -14,7 +14,9 @@ export default function useAxiosClient(
   });
 }
 
-export function getAxiosClient(otherHeaders?: AxiosRequestHeaders) {
+export function getAxiosClient(
+  otherHeaders?: AxiosRequestHeaders
+): AxiosInstance {
   const header = {
     ...otherHeaders
   };

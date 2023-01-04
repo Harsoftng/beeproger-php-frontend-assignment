@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTodosFunctions } from '../api/useTodosFunctions';
 
-const CreateTaskButton = () => {
+const CreateTaskButton = (): React.ReactElement => {
   const { openCreateTodoDialog } = useTodosFunctions();
   return (
     <div className="mb-3">

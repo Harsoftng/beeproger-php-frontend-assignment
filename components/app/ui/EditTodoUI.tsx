@@ -3,7 +3,7 @@ import { useTodosFunctions } from '../api/useTodosFunctions';
 import { ITodo } from '../types/ITodo';
 import TodoForm from './TodoForm';
 
-const EditTodoUI = ({ todo }: { todo: ITodo }) => {
+const EditTodoUI = ({ todo }: { todo: ITodo }): React.ReactElement => {
   const { closeDialog } = useTodosFunctions();
   return (
     <div className="flex items-center justify-center flex-col min-w-[100%]">

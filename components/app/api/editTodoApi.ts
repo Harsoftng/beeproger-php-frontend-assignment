@@ -51,10 +51,8 @@ export const editTodoApi = createAsyncThunk(
           headers: { 'Content-Type': 'multipart/form-data' }
         }
       );
-      console.log({ resp: response });
 
       if (response?.data?.data && response?.data?.data?.title) {
-        console.log({ response });
         toast('Success', { type: 'success' });
         dispatch(todoActions.closeTodoDialog());
         dispatch(todoActions.updateTodo(response?.data?.data));

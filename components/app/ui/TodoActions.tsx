@@ -3,10 +3,10 @@ import { useTodosFunctions } from '../api/useTodosFunctions';
 import { ITodo } from '../types/ITodo';
 import clsx from 'clsx';
 
-const TodoActions = ({ todo }: { todo: ITodo }) => {
+const TodoActions = ({ todo }: { todo: ITodo }): React.ReactElement => {
   const { deleteTodo, deleting, openEditTodoDialog } = useTodosFunctions();
 
-  const onDeleteTodo = async () => {
+  const onDeleteTodo = async (): Promise<void> => {
     await deleteTodo(todo.id);
   };
 

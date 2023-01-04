@@ -3,7 +3,11 @@ import { ITodo } from '../types/ITodo';
 import TodoTableRow from './TodoTableRow';
 import TodoNoDataFoundUI from './TodoNoDataFoundUI';
 
-const TodoTableRows = ({ todos = [] }: { todos: ITodo[] }) => {
+const TodoTableRows = ({
+  todos = []
+}: {
+  todos: ITodo[];
+}): React.ReactElement => {
   return (
     <>
       {todos?.map((todo: ITodo) => (

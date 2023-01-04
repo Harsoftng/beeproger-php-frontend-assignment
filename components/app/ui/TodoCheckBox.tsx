@@ -4,14 +4,14 @@ import { ETodoStatus } from '../types/ETodoStatus';
 import { useTodosFunctions } from '../api/useTodosFunctions';
 import { MoonLoader } from 'react-spinners';
 
-const TodoCheckBox = ({ todo }: { todo: ITodo }) => {
+const TodoCheckBox = ({ todo }: { todo: ITodo }): React.ReactElement => {
   const [checked, setChecked] = useState(todo.status === ETodoStatus.COMPLETED);
   const { changeTodoStatus, updating } = useTodosFunctions();
 
   const onStatusChanged = async (
     event: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    const checkedValue = event.target.checked;
+  ): Promise<void> => {
+    const checkedValue: boolean = event.target.checked;
     setChecked((checked: boolean) => !checked);
 
     const status: ETodoStatus = checkedValue

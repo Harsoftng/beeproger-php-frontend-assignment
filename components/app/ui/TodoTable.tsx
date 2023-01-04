@@ -5,7 +5,7 @@ import TodoTableFooter from './TodoTableFooter';
 import TodoSectionTitle from './TodoSectionTitle';
 import { ITodoTableProps } from '../types/ITodoSectionTitleProps';
 
-const TodoTable = (props: ITodoTableProps) => {
+const TodoTable = (props: ITodoTableProps): React.ReactElement => {
   const { isAllMode, option, todos } = props;
   return (
     <div className="overflow-x-auto w-full" key={option.id}>

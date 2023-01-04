@@ -13,10 +13,10 @@ import { editTodoApi } from './editTodoApi';
 export const useTodosFunctions = () => {
   const dispatch = useAppDispatch();
   const { showConfirmDialog } = useShowConfirmDialog();
-  const [deleting, setDeleting] = useState(false);
-  const [updating, setUpdating] = useState(false);
+  const [deleting, setDeleting] = useState<boolean>(false);
+  const [updating, setUpdating] = useState<boolean>(false);
 
-  const deleteTodo = async (id: number) => {
+  const deleteTodo = async (id: number): Promise<void> => {
     setDeleting(true);
     if (!id) {
       setDeleting(false);
@@ -36,7 +36,10 @@ export const useTodosFunctions = () => {
     setDeleting(false);
   };
 
-  const changeTodoStatus = async (id: number, status: ETodoStatus) => {
+  const changeTodoStatus = async (
+    id: number,
+    status: ETodoStatus
+  ): Promise<void> => {
     setUpdating(true);
     if (!status) {
       setUpdating(false);
@@ -50,7 +53,7 @@ export const useTodosFunctions = () => {
 
   const createTodo = async (
     values: IFormInitialValues & { photoUpload?: File }
-  ) => {
+  ): Promise<void> => {
     setUpdating(true);
     if (!values) {
       setUpdating(false);
@@ -63,7 +66,7 @@ export const useTodosFunctions = () => {
 
   const editTodo = async (
     values: IFormInitialValues & { photoUpload?: File; id: number }
-  ) => {
+  ): Promise<void> => {
     setUpdating(true);
     if (!values) {
       setUpdating(false);
@@ -74,23 +77,23 @@ export const useTodosFunctions = () => {
     setUpdating(false);
   };
 
-  const closeDialog = () => {
+  const closeDialog = (): void => {
     dispatch(todoActions.closeTodoDialog());
   };
 
-  const openEditTodoDialog = (id: number) => {
+  const openEditTodoDialog = (id: number): void => {
     dispatch(todoActions.setSelectedTodoId(id));
     dispatch(todoActions.setView(ETodoDialogView.Edit_Todo_View));
     dispatch(todoActions.openTodoDialog());
   };
 
-  const openViewTodoDialog = (id: number) => {
+  const openViewTodoDialog = (id: number): void => {
     dispatch(todoActions.setSelectedTodoId(id));
     dispatch(todoActions.setView(ETodoDialogView.View_Todo_View));
     dispatch(todoActions.openTodoDialog());
   };
 
-  const openCreateTodoDialog = () => {
+  const openCreateTodoDialog = (): void => {
     dispatch(todoActions.setSelectedTodoId(0));
     dispatch(todoActions.setView(ETodoDialogView.Create_Todo_View));
     dispatch(todoActions.openTodoDialog());
