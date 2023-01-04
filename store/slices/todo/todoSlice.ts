@@ -5,7 +5,7 @@ import { ITodoState } from '../../types/ITodoState';
 import { AllTodoRoutingStatusType } from '../../../components/app/types/ITodoStatusProps';
 
 const defaultPaymentState: ITodoState = {
-  dialogIsOpen: true,
+  dialogIsOpen: false,
   loading: false,
   view: ETodoDialogView.View_Todo_View,
   todos: [],

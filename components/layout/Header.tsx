@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AppContext } from '../../store/context/AppContext';
+import Link from 'next/link';
 
 const Header = (): React.ReactElement => {
   const { changeTheme, theme } = useContext(AppContext);
@@ -13,7 +14,9 @@ const Header = (): React.ReactElement => {
 
   return (
     <div className="navbar bg-base-100 items-center justify-between">
-      <a className="btn btn-ghost normal-case text-xl">Beeproger Todo</a>
+      <Link href={'/'} className="btn btn-ghost normal-case text-xl">
+        Beeproger Todo
+      </Link>
       <button className="btn btn-ghost m-1 p-0">
         <label className="swap swap-rotate">
           <input type="checkbox" onChange={setTheme} checked={checked} />
