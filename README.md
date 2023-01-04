@@ -10,27 +10,75 @@ npm run dev
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:1760](http://localhost:1760) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## About Beeproger Todo App
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+This Todo App is the front-end part of the take home assignment from Beeproger. Find details below
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### The beeproger assignment
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+As indicated during the job interview, we would like you to complete an assignment
+for us. This will allow us to get a clear picture of your knowledge level.
 
-## Learn More
+### Here's what you should do:
 
-To learn more about Next.js, take a look at the following resources:
+Develop a To-do list and/or Shopping list for us. It should consist of a loss back-
+and frontend, which communicate with each other.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### The characteristics of this To-do list are are:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- Shows a list of items;
+- Being able to edit an item;
+- A photo uploaded with the item;
+- Being able to view the details of an item;
+- The option to mark an item as complete;
+- Being able to remove an item from the list;
+- And make sure to always check for errors.
 
-## Deploy on Vercel
+### The backend requirements:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Laravel Framework - REST
+- MySQL Database
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### The frontend requirements:
+
+At beeproger we work with the following frameworks/libraries/templating engines
+
+- React
+- Angular
+- Ionic
+- Blade
+- Livewire
+
+
+## Technologies & packages used
+
+- React
+- Next.Js
+- Formik
+- Yup
+- Redux, Redux Thunk, Redux Persist & Redux Toolkit
+- Tailwindcss
+- DaisyUI
+- HeadlessUI
+- Hero Icons
+- Axios
+- SWR
+- React Toastify
+- React Spinners
+- Typescript
+- ESLint
+- Prettier
+- And more
+
+## NB:
+
+This project was done on holidays/vacation so i did not really have the time to complete the app. The only part remaining is writing automated tests for both the backend and
+frontend apps. If you have any questions or require more info running the app, please contact me on harsoftng@gmail.com.
+
+Cheers 🥂😊
+
+## License
+
+This app and the Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
